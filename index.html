@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <!-- AOS for scroll animations -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Animate.css for CSS animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #f9fafb;
+      --text: #1f2937;
+      --accent: #10b981;
+      --transition: 0.4s ease;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--secondary);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.8);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--primary);
+      cursor: pointer;
+    }
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+    nav a {
+      position: relative;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.25rem;
+      transition: color var(--transition);
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width var(--transition);
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .hero {
+      height: 60vh;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      opacity: 0.9;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    section h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 50px;
+      height: 4px;
+      background: var(--primary);
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      transform: translateY(30px);
+      opacity: 0;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+    .project-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .project-content {
+      padding: 1.5rem;
+    }
+    .project-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    .project-content p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .project-content a {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .project-content a:hover {
+      background: var(--primary);
+      transform: scale(1.05);
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #f3f4f6;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="animate__animated animate__fadeInDown">
+    <h1 onclick="window.scrollTo({top:0,behavior:'smooth'})">My Portfolio</h1>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero animate__animated animate__fadeIn">
+    <h2>Welcome to My Technical World</h2>
+    <p>Building modern, performant applications with clean, maintainable code.</p>
+  </section>
+
+  <section id="projects" class="container" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="projects">
+      <!-- Example Project Card -->
+      <div class="project-card" data-aos="flip-left" data-aos-delay="100">
+        <img src="https://via.placeholder.com/400x200" alt="Project 1 Screenshot" />
+        <div class="project-content">
+          <h3>Project One</h3>
+          <p>Modern web app using React and Node.js.</p>
+          <a href="#">View Repo</a>
+        </div>
+      </div>
+      <div class="project-card" data-aos="flip-left" data-aos-delay="200">
+        <img src="https://via.placeholder.com/400x200" alt="Project 2 Screenshot" />
+        <div class="project-content">
+          <h3>Project Two</h3>
+          <p>Spring Boot microservice with REST API.</p>
+          <a href="#">View Repo</a>
+        </div>
+      </div>
+      <div class="project-card" data-aos="flip-left" data-aos-delay="300">
+        <img src="https://via.placeholder.com/400x200" alt="Project 3 Screenshot" />
+        <div class="project-content">
+          <h3>Project Three</h3>
+          <p>Data pipeline built with Python and Kafka.</p>
+          <a href="#">View Repo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="container" data-aos="fade-right">
+    <h2>About Me</h2>
+    <p>I am a passionate developer with experience in Java, JavaScript, and Python. I love crafting scalable, maintainable solutions and exploring new technologies.</p>
+  </section>
+
+  <section id="contact" class="container" data-aos="fade-left">
+    <h2>Contact</h2>
+    <p>Feel free to reach out at <a href="mailto:your.email@example.com">your.email@example.com</a> or connect on <a href="#">LinkedIn</a>.</p>
+  </section>
+
+  <footer class="animate__animated animate__fadeInUp">
+    <p>&copy; 2025 Your Name. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
+</body>
+</html>
